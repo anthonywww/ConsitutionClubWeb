@@ -1,0 +1,57 @@
+##
+# Constitution Club Website Instance
+##
+
+##
+# HTTP Listener
+##
+server {
+	listen       80;
+	server_name  mpcconstitution.club;
+	access_log   off;
+	error_log    off;
+
+	# Redirect to secure site
+	return       301 https://$server_name$request_uri;
+}
+
+##
+# HTTPS Listener
+##
+server {
+	listen              443 ssl;
+	server_name         mpcconstitution.club;
+	ssl_session_timeout 5m;
+	ssl_certificate     /etc/nginx/certs/mpcconstitution.club.cert;
+	ssl_certificate_key /etc/nginx/certs/mpcconstitution.club.key;
+	ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;
+
+	# Disable logs
+	access_log          off;
+	error_log           off;
+
+	root /var/www/ConstitutionClubWeb/public;
+
+	# Serve static pages first
+	index index.html index.php;
+
+	location / {
+		# Try file, try directory, finally try using Code Igniter
+		try_files $uri $uri/ /index.php?/$request_uri;
+		
+		location = /index.php {
+			fastcgi_index index.php;
+			fastcgi_send_timeout 15;
+			fastcgi_read_timeout 15;
+			fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+			fastcgi_param CI_ENV "production";
+
+			# Change this to your php-fpm version
+			fastcgi_pass unix:/var/run/php/php7.1-fpm.sock;
+			include params/fastcgi_params;
+		}
+		
+	}
+
+}
+

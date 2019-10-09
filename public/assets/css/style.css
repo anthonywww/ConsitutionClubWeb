@@ -1,0 +1,60 @@
+@font-face {
+font-family: 'opensans';
+	src: url('/assets/css/fonts/opensans.eot')  format('embedded-opentype'),
+	url('/assets/css/fonts/opensans.woff') format('woff'),
+	url('/assets/css/fonts/opensans.woff2') format('woff2'),
+	url('/assets/css/fonts/opensans.ttf')  format('truetype'),
+	url('/assets/css/fonts/opensans.svg')  format('svg');
+}
+
+html, body {
+	background-color: whitesmoke;
+}
+
+#main-content {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+#header {
+
+}
+
+#header nav.navbar a {
+	text-decoration: none;
+}
+
+footer.footer {
+	flex: 1;
+}
+
+a {
+	color: #00008D;
+	font-style: none;
+	-webkit-transition: color 0.2s ease-in, background 0.2s ease-in;
+	-moz-transition: color 0.2s ease-in, background 0.2s ease-in;
+	-ms-transition: color 0.2s ease-in, background 0.2s ease-in;
+	-o-transition: color 0.2s ease-in, background 0.2s ease-in;
+	transition: color 0.2s ease-in, background 0.2s ease-in;
+}
+
+a:hover {
+	color: #00008D;
+	text-decoration: underline;
+}
+
+a:before, a:after {
+	-webkit-transition: color 0.2s ease-in, background 0.2s ease-in;
+	-moz-transition: color 0.2s ease-in, background 0.2s ease-in;
+	-ms-transition: color 0.2s ease-in, background 0.2s ease-in;
+	-o-transition: color 0.2s ease-in, background 0.2s ease-in;
+	transition: color 0.2s ease-in, background 0.2s ease-in;
+}
+
+.no-select {
+	user-select: none;
+	-o-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+}

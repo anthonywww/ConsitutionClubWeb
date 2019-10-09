@@ -1,0 +1,24 @@
+
+application/cache/*
+application/logs/*
+application/config/config.php
+application/config/database.php
+application/config/club.php
+
+# Mac OS / Windows
+.DS_Store
+Thumbs.db
+
+# IDE Files
+#-------------------------
+/nbproject/
+.idea/*
+
+## Sublime Text cache files
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+/tests/tests/
+/tests/results/

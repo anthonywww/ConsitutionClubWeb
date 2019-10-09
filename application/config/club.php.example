@@ -1,0 +1,8 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+// Title of website installation
+$config['club']['title'] = "MPC Constitution Club";
+
+// Description of the website
+$config['club']['description'] = "Promoting the god given rights provided by the constitution.";
