@@ -9,47 +9,97 @@ font-family: 'opensans';
 
 html, body {
 	background-color: whitesmoke;
+	font-family: opensans, 'opensans', sans-serif;
 }
 
-#main-content {
+#body-container {
 	display: flex;
-	min-height: 100vh;
+	min-height: 91vh;
 	flex-direction: column;
 }
 
-#header {
-
+#header nav.navbar {
+	background-color: #AA0000;
+	color: #FFFFFF;
 }
 
 #header nav.navbar a {
 	text-decoration: none;
+	color: #FFFFFF;
+}
+
+#header nav.navbar a.navbar-item:hover {
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+#header nav.navbar .navbar-dropdown {
+	border-top: none;
+	background-color: #AA0000;
+}
+
+#header nav.navbar .navbar-link:hover {
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar-item.has-dropdown:focus .navbar-link, .navbar-item.has-dropdown:hover .navbar-link, .navbar-item.has-dropdown.is-active .navbar-link {
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar-menu {
+	background-color: inherit;
+}
+
+#header nav.navbar .navbar-item.navbar-item-home .title {
+	color: #FFFFFF;
+}
+
+#header nav.navbar .navbar-item.navbar-item-home:hover {
+	color: #FFFFFF;
+	background: none;
 }
 
 footer.footer {
+	background-color: #1A378E;
+	color: #FFFFFF;
 	flex: 1;
+	padding: 20px;
+	font-size: 12px;
+}
+
+footer.footer .content, footer.footer p, footer.footer p.content, footer.footer h1, footer.footer h2, footer.footer h3 footer.footer a {
+	color: #FFFFFF;
+}
+
+footer.footer a {
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+a.button.is-link {
+	background-color: #1A378E;
 }
 
 a {
-	color: #00008D;
+	color: #1A378E;
 	font-style: none;
-	-webkit-transition: color 0.2s ease-in, background 0.2s ease-in;
-	-moz-transition: color 0.2s ease-in, background 0.2s ease-in;
-	-ms-transition: color 0.2s ease-in, background 0.2s ease-in;
-	-o-transition: color 0.2s ease-in, background 0.2s ease-in;
-	transition: color 0.2s ease-in, background 0.2s ease-in;
+	-webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+	-moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+	-ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+	-o-transition: color 0.1s ease-in, background 0.1s ease-in;
+	transition: color 0.1s ease-in, background 0.1s ease-in;
 }
 
 a:hover {
-	color: #00008D;
+	color: #AA0000;
 	text-decoration: underline;
 }
 
 a:before, a:after {
-	-webkit-transition: color 0.2s ease-in, background 0.2s ease-in;
-	-moz-transition: color 0.2s ease-in, background 0.2s ease-in;
-	-ms-transition: color 0.2s ease-in, background 0.2s ease-in;
-	-o-transition: color 0.2s ease-in, background 0.2s ease-in;
-	transition: color 0.2s ease-in, background 0.2s ease-in;
+	-webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+	-moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+	-ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+	-o-transition: color 0.1s ease-in, background 0.1s ease-in;
+	transition: color 0.1s ease-in, background 0.1s ease-in;
 }
 
 .no-select {
@@ -57,4 +107,32 @@ a:before, a:after {
 	-o-user-select: none;
 	-moz-user-select: none;
 	-webkit-user-select: none;
+}
+
+#home_main {
+	background-image: url("/assets/img/constitution.png");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+#home_goals {
+	background-image: url("/assets/img/whitehouse.png");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+#home_news {
+	background-image: url("/assets/img/office.png");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+
+.white-glass-container {
+	background-color: rgba(255, 255, 255, 0.75);
+	padding: 50px;
+	border-radius: 5px;
 }

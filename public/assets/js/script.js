@@ -8,5 +8,5 @@ $(document).ready(function() {
 	});
 
 	// Console
-	console.log('A Constitution Club instance https://github.com/anthonywww/ConsitutionClubWeb forged in the %cU%cS%cA', 'background:#AA0000;color:#FFFFFF', 'background:#AA0000;color:#000000', 'background:#0000AA;color:#FFFFFF');
+	console.log('A Constitution Club Web instance https://github.com/anthonywww/ConsitutionClubWeb forged in the %cU%cS%cA%c.', 'background:#AA0000;color:#FFFFFF', 'background:#FFFFFF;color:#000000', 'background:#0000AA;color:#FFFFFF');
 });

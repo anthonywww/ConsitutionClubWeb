@@ -1,8 +1,15 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-// Title of website installation
-$config['club']['title'] = "MPC Constitution Club";
+// Title of website
+$config['club']['title'] = "Constitution Club";
 
 // Description of the website
-$config['club']['description'] = "Promoting the god given rights provided by the constitution.";
+$config['club']['description'] = "Another instance of the Constitution Club website.";
+
+// Instructure LMS (Learning Management System) Institution Developer Key
+// OAuth2 login integration. This will disable local logins.
+$config['club']['instructure_key'] = "";
+
+// Instructure LMS (Learning Management System) Login URL
+$config['club']['instructure_key'] = "";
