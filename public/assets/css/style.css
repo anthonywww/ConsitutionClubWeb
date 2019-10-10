@@ -29,7 +29,8 @@ html, body {
 }
 
 #header nav.navbar a.navbar-item:hover {
-	background-color: rgba(255, 255, 255, 0.5);
+	background-color: #FFFFFF;
+	color: #AA0000;
 }
 
 #header nav.navbar .navbar-dropdown {
@@ -38,11 +39,13 @@ html, body {
 }
 
 #header nav.navbar .navbar-link:hover {
-	background-color: rgba(255, 255, 255, 0.5);
+	background-color: #FFFFFF;
+	color: #AA0000;
 }
 
 .navbar-item.has-dropdown:focus .navbar-link, .navbar-item.has-dropdown:hover .navbar-link, .navbar-item.has-dropdown.is-active .navbar-link {
-	background-color: rgba(255, 255, 255, 0.5);
+	background-color: #FFFFFF;
+	color: #AA0000 !important;
 }
 
 .navbar-menu {

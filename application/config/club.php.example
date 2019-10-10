@@ -12,4 +12,4 @@ $config['club']['description'] = "Another instance of the Constitution Club webs
 $config['club']['instructure_key'] = "";
 
 // Instructure LMS (Learning Management System) Login URL
-$config['club']['instructure_key'] = "";
+$config['club']['instructure_login'] = "";

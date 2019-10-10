@@ -1,7 +1,7 @@
-# ConsitutionClubWeb
+# Consitution Club Web
 ### The Official Constitution Club Website Software
 
-A Open-Source website for collaborating topics about the U.S. Consitution and similarly oriented educational clubs all over the United States of America.
+A Open-Source website for collaborating topics about the U.S. Constitution and similarly oriented educational clubs all over the United States of America.
 
 ## Features
 - Platform for posting news, events, and updates.
@@ -26,9 +26,9 @@ For best results deploy on a Debian GNU/Linux system.
 Via the command-line issue `git clone https://github.com/anthonywww/ConsitutionClubWeb`.
 
 #### MySQL/MariaDB Database Initialization
-1. Create a database, this can be done with the command `CREATE DATABASE constitution_club;` in the database CLI monitor.
-2. Create a user by issuing `CREATE USER 'constitution_club'@'localhost' IDENTIFIED BY 'password';`.
-3. Finally, you can issue `FLUSH PRIVILEGES;`.
+1. Create a database, issue `CREATE DATABASE constitution_club;` in the database CLI monitor.
+2. Create a user, issue `CREATE USER 'constitution_club'@'localhost' IDENTIFIED BY 'password';`.
+3. Finally, you can issue `FLUSH PRIVILEGES;` to flush the changes to the database.
 
 #### Configure the Website
 1. Copy `application/config/config.php.example` to `application/config/config.php` and configure.
