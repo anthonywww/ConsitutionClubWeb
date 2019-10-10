@@ -21,6 +21,8 @@
 		<!-- CSS -->
 		<link rel="stylesheet" type="text/css" href="/assets/css/bulma.css">
 		<link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.css">
+		<link rel="stylesheet" type="text/css" href="/assets/css/video-js.css">
+		<link rel="stylesheet" type="text/css" href="/assets/css/video-js-skin.css">
 		<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 	</head>
 	<!-- Body -->
@@ -92,7 +94,7 @@
 						<div class="navbar-end">
 							<div class="navbar-item">
 								<div class="buttons">
-									
+
 									<a class="button is-link">
 										<i class="fa fa-user-circle"></i>&nbsp;Log In
 									</a>
