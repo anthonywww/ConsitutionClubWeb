@@ -1,4 +1,4 @@
-# Consitution Club Web
+# Constitution Club Web
 ### The Official Constitution Club Website Software
 
 A Open-Source website for collaborating topics about the U.S. Constitution and similarly oriented educational clubs all over the United States of America.
