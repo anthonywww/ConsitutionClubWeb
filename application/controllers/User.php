@@ -111,6 +111,7 @@ class User extends CI_Controller {
 		session_destroy();
 		unset($_SESSION);
 		$_SESSION = null;
+		redirect("/user/login");
 	}
 
 
