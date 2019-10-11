@@ -35,7 +35,7 @@
 						<a class="navbar-item navbar-item-home" href="/">
 							<img src="/assets/img/title.png" alt="<?php echo $this->config->item("title", "club");?>">
 						</a>
-						<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+						<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false">
 							<span aria-hidden="true"></span>
 							<span aria-hidden="true"></span>
 							<span aria-hidden="true"></span>
@@ -89,16 +89,41 @@
 							<a class="navbar-item navbar-item-events" href="/contact-us">
 								<span><i class="fa fa-envelope"></i>&nbsp;Contact Us</span>
 							</a>
+<?php if(!empty($_SESSION['logged_in'])):?>
+							<div class="navbar-item has-dropdown is-hoverable">
+								<a class="navbar-link is-arrowless" href="/user">
+									<span><i class="fa fa-user-circle"></i>&nbsp;<?php echo $_SESSION['first_name'];?></span>
+								</a>
+								<div class="navbar-dropdown">
+									<a class="navbar-item" href="/user/profile">
+										<span><i class="fa fa-cog"></i>&nbsp;Profile Settings</span>
+									</a>
+<?php if($_SESSION['permission'] >= 3):?>
+									<hr class="navbar-divider">
+									<a class="navbar-item" href="/admin">
+										<span><i class="fa fa-cog fa-spin"></i>&nbsp;Site Administration</span>
+									</a>
+									<a class="navbar-item" href="/admin/users">
+										<span><i class="fa fa-users"></i>&nbsp;Manage Members</span>
+									</a>
+<?php endif;?>
+								</div>
+							</div>
+<?php endif;?>
 						</div>
 
 						<div class="navbar-end">
 							<div class="navbar-item">
 								<div class="buttons">
-
-									<a class="button is-link">
-										<i class="fa fa-user-circle"></i>&nbsp;Log In
+<?php if(empty($_SESSION['logged_in'])):?>
+									<a class="button is-link" href="<?php echo $this->config->item("enable_instructure", "club") ? $this->config->item("instructure_login", "club") : "/user/login";?>">
+										<i class="fa fa-sign-in-alt"></i>&nbsp;Login
 									</a>
-
+<?php else:?>
+									<a class="button is-link" href="/user/logout">
+										<i class="fa fa-sign-out-alt"></i>&nbsp;Log Out
+									</a>
+<?php endif;?>
 								</div>
 							</div>
 						</div>

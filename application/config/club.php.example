@@ -7,9 +7,19 @@ $config['club']['title'] = "Constitution Club";
 // Description of the website
 $config['club']['description'] = "Another instance of the Constitution Club website.";
 
-// Instructure LMS (Learning Management System) Institution Developer Key
-// OAuth2 login integration. This will disable local logins.
+// If this value is set to a string, you can login via the built-in
+// "admin" account and the password you specify to assign initial rolls,
+// or fix a situation where the president locked themselves out.
+// Be sure to set this value to NULL when you are done.
+$config['club']['admin_password'] = "password";
+
+// Enable Instructure LMS (Learning Management System) OAuth2 Logins
+// This will disable the local user database in favor for Instructure's
+// User authentication system.
+$config['club']['enable_instructure'] = FALSE;
+
+// Instructure LMS Institution Developer Key
 $config['club']['instructure_key'] = "";
 
-// Instructure LMS (Learning Management System) Login URL
+// Instructure LMS Login Endpoint URL
 $config['club']['instructure_login'] = "";

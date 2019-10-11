@@ -4,9 +4,18 @@
 A Open-Source website for collaborating topics about the U.S. Constitution and similarly oriented educational clubs all over the United States of America.
 
 ## Features
-- Platform for posting news, events, and updates.
+- Members can post and discuss recent news and events.
 - Breaking down and understanding the rights provided by the U.S. Constitution.
-- An open discussion board.
+- Built-in permission system.
+
+## Permissions
+
+Permissions are incremental and build on top of on another.
+
+1. **Members** have general access to the site, with the ability to login and contribute to open discussions and create posts.
+2. **Secretaries/Treasurers** have access to schedule events and make announcements.
+3. The **Vice President** has access to major website actions and helps manage the website and community. This user can promote/demote **Members** to **Secretaries** or **Treasurers**.
+4. The **President** has executive control over the website, with the ability to change the permission level of any user to any level. This user is expected to gracefully promote the next-elected president in the club after their term is up, and resign their power.
 
 ## Installation
 For best results deploy on a Debian GNU/Linux system.
@@ -23,7 +32,7 @@ For best results deploy on a Debian GNU/Linux system.
 - mariadb-server (10.1+) or MySQL.
 
 #### Clone the repository
-Via the command-line issue `git clone https://github.com/anthonywww/ConsitutionClubWeb`.
+Via the command-line issue `git clone https://github.com/anthonywww/ConstitutionClubWeb`.
 
 #### MySQL/MariaDB Database Initialization
 1. Create a database, issue `CREATE DATABASE constitution_club;` in the database CLI monitor.
@@ -37,3 +46,9 @@ Via the command-line issue `git clone https://github.com/anthonywww/ConsitutionC
 
 #### Set up NGINX
 - Copy `vhost.nginx` to `/etc/nginx/sites-enabled/` and configure it to your site instance.
+
+#### Login
+- You can login using the default user `admin` and password `password`. If this is your first time logging in ever, the site might take a while to log you in, as it is creating and initializing its local database tables.
+- Make sure to disable the default admin account in the `application/config/club.php` configuration file after you are done assigning initial rolls.
+- You can disable the account by setting the value from `"password"` to `NULL`, without quotation marks, always ending with a semi-colon.
+- If you need to fix a mistake made later in the lifetime of the website, you can set the value `NULL` to a strong password within quotation marks, ending with a semi-colon.

@@ -305,6 +305,8 @@ switch (ENVIRONMENT)
 
 	define('VIEWPATH', $view_folder.DIRECTORY_SEPARATOR);
 
+// Load custom utils
+require_once BASEPATH."utils.php";
 
 /*
  * --------------------------------------------------------------------

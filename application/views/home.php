@@ -80,13 +80,8 @@
 							<h5 class="subtitle is-5 is-uppercase">Subject</h5>
 							<p>Subject Description</p>
 						</div>
-						<div class="column is-4 has-text-centered">
-							<i class="fa fa-image fa-3x"></i>
-							<h5 class="subtitle is-5 is-uppercase">Subject</h5>
-							<p>Subject Description</p>
-						</div>
-						<div class="column is-4 has-text-centered">
-							<a class="twitter-timeline" data-lang="en" data-dnt="true" data-theme="light" href="https://twitter.com/POTUS?ref_src=twsrc%5Etfw" crossorigin="anonymous">Tweets by POTUS</a>
+						<div class="column is-8 has-text-centered">
+							<a class="twitter-timeline" data-lang="en" data-height="350" data-dnt="true" data-link-color="#1A378E" href="https://twitter.com/POTUS?ref_src=twsrc%5Etfw">Tweets by POTUS</a>
 							<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 						</div>
 					</div>

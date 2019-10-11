@@ -5,17 +5,137 @@ class User extends CI_Controller {
 
 	// Show user profile or redirect to login page
 	public function index() {
-		
+		if (empty($_SESSION['logged_in'])) {
+			redirect("/user/login");
+			return;
+		}
+		$header_data = array();
+		$data = array();
+
+
+
+		$header_data["title"] = $_SESSION["first_name"] . " " . $_SESSION["last_name"];
+		$this->load->view("header", $header_data);
+		$this->load->view("user/profile", $data);
+		$this->load->view("footer");
 	}
 
-	// OAuth2 token authentication / Local login page
+	private function show_login($body_data=array()) {
+		$header_data = array();
+		$header_data["title"] = "Login";
+
+		$body_data["csrf_token"] = gen_csrf_token();
+		$this->load->view("header", $header_data);
+		$this->load->view("user/login", $body_data);
+		$this->load->view("footer");
+	}
+
+	// Local login page
 	public function login() {
-		
+		if (!empty($_SESSION['logged_in'])) {
+			redirect("/user");
+			return;
+		}
+		if ($this->config->item("enable_instructure", "club")) {
+			redirect($this->config->item("instructure_login"));
+			return;
+		}
+
+		$data = array();
+
+		// Sent login POST
+		if (!empty($_POST)) {
+			if (!empty($_POST['csrf_token'])) {
+				if ($_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+					$data["error_message"] = "Invalid CSRF token, try again.";
+					$this->show_login($data);
+					return;
+				}
+				if (!empty($this->config->item("admin_password", "club"))) {
+					if ($_POST['email'] == "admin") {
+						if ($_POST['password'] === $this->config->item("admin_password", "club")) {
+							// Check if databases exist, if not, run the migrator
+							$this->load->library("migration");
+							if (!$this->migration->latest()) {
+								$data = array();
+								$data["title"] = "An error occured while migrating the database tables.";
+								$data["message"] = $this->migration->error_string();
+								$str = "<br>\n";
+								$str .= "<ul>\n";
+
+								foreach ($this->migration->find_migrations() as $line) {
+									$str .= "<li>$line</li>\n";
+								}
+
+								$data["message"] .= ($str . "</ul>\n");
+								$this->load->view("header", array("title" => "Error"));
+								$this->load->view("error_page", $data);
+								$this->load->view("footer");
+								return;
+							}
+
+							// Do admin login
+							$_SESSION['logged_in'] = true;
+							$_SESSION['first_name'] = "admin";
+							$_SESSION['last_name'] = "";
+							$_SESSION['permission'] = 128;
+							$_SESSION['permission_name'] = "Administrator";
+							redirect("/user");
+							return;
+						}
+						$data["error_message"] = "Incorrect administrator password.";
+						$this->show_login($data);
+						return;
+					}
+				}
+				if (strlen($_POST['email']) > 100 || strlen($_POST['email'] < 4)) {
+					$data["error_message"] = "Invalid email address provided.";
+					$this->show_login($data);
+					return;
+				}
+
+			}
+			$data["error_message"] = "Invalid CSRF token, try again.";
+			$this->show_login($data);
+			return;
+		}
+
+		$this->show_login($data);
+	}
+
+	// OAuth2 token authentication redirection point
+	public function oauth2login() {
+		// TODO: Authenticate user & match schema
+
+		// GET data
+		var_dump($_GET);
+
+		// POST data
+		var_dump($_POST);
+
 	}
 
 	// OAuth2 token de-authentication / Local logout page
 	public function logout() {
-		
+		if (empty($_SESSION['logged_in'])) {
+			redirect("/user/login");
+			return;
+		}
+
+		if ($this->config->item("enable_instructure", "club")) {
+			// TODO: Deauth via redirect or CURL ?
+			// $this->config->item("instructure_logout", "club");
+		}
+
+		// Destroy the local session
+		session_destroy();
+		unset($_SESSION);
+		$_SESSION = null;
 	}
+
+
+
+
+
 
 }
