@@ -42,13 +42,20 @@ Via the command-line issue `git clone https://github.com/anthonywww/Constitution
 #### Configure the Website
 1. Copy `application/config/config.php.example` to `application/config/config.php` and configure.
 2. Copy `application/config/database.php.example` to `application/config/database.php` and configure.
+2. Copy `application/config/migration.php.example` to `application/config/migration.php` and configure.
 3. Copy `application/config/club.php.example` to `application/config/club.php` and configure.
 
 #### Set up NGINX
-- Copy `vhost.nginx` to `/etc/nginx/sites-enabled/` and configure it to your site instance.
+1. Copy `vhost.nginx` to `/etc/nginx/sites-enabled/` and configure it to your site instance.
+2. Reload nginx `service nginx restart`.
+
+#### Run an initial migration
+1. Edit the `application/config/migration.php` file to enable migrations.
+2. Using a web-browser, navigate to the `/migrate` and wait for the database tables to be created and initialized.
+3. If you get a successful response, disable migrations in `application/config/migration.php` again, otherwise fix any migration issues and refresh the migration page.
 
 #### Login
-- You can login using the default user `admin` and password `password`. If this is your first time logging in ever, the site might take a while to log you in, as it is creating and initializing its local database tables.
+- You can login using the default user `admin` and password `password`.
 - Make sure to disable the default admin account in the `application/config/club.php` configuration file after you are done assigning initial rolls.
 - You can disable the account by setting the value from `"password"` to `NULL`, without quotation marks, always ending with a semi-colon.
 - If you need to fix a mistake made later in the lifetime of the website, you can set the value `NULL` to a strong password within quotation marks, ending with a semi-colon.

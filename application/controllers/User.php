@@ -54,26 +54,6 @@ class User extends CI_Controller {
 				if (!empty($this->config->item("admin_password", "club"))) {
 					if ($_POST['email'] == "admin") {
 						if ($_POST['password'] === $this->config->item("admin_password", "club")) {
-							// Check if databases exist, if not, run the migrator
-							$this->load->library("migration");
-							if (!$this->migration->latest()) {
-								$data = array();
-								$data["title"] = "An error occured while migrating the database tables.";
-								$data["message"] = $this->migration->error_string();
-								$str = "<br>\n";
-								$str .= "<ul>\n";
-
-								foreach ($this->migration->find_migrations() as $line) {
-									$str .= "<li>$line</li>\n";
-								}
-
-								$data["message"] .= ($str . "</ul>\n");
-								$this->load->view("header", array("title" => "Error"));
-								$this->load->view("error_page", $data);
-								$this->load->view("footer");
-								return;
-							}
-
 							// Do admin login
 							$_SESSION['logged_in'] = true;
 							$_SESSION['first_name'] = "admin";

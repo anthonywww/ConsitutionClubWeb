@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title><?php echo $this->config->item("title", "club") . (empty($title) ? "" : " - " . $title);?></title>
+		<title><?php echo (empty($title) ? "" : $title . " - ") . $this->config->item("title", "club");?></title>
 		<meta charset="UTF-8">
 		<meta name="description" content="<?php echo $this->config->item("description", "club");?>">
 		<meta name="tags" content="u.s. constitution,constitution club,instance,constitution,club,open source">
 		<link rel="icon" href="/favicon.ico" type="image/x-icon">
 		<link rel="icon" href="/favicon.png" type="image/x-icon">
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1, width=device-width, height=device-height">
-		<meta property="og:title" content="<?php echo $this->config->item("title", "club") . (empty($title) ? "" : " - " . $title);?>">
+		<meta property="og:title" content="<?php echo (empty($title) ? "" : $title . " - ") . $this->config->item("title", "club");?>">
 		<meta property="og:type" content="website">
 		<meta property="og:url" content="https://<?php echo base_url();?>">
 		<meta property="og:image" content="/assets/img/logo.png">

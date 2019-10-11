@@ -1,8 +1,8 @@
-
 application/cache/*
 application/logs/*
 application/config/config.php
 application/config/database.php
+application/config/migration.php
 application/config/club.php
 
 # Mac OS / Windows
