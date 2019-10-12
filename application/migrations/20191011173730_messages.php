@@ -24,7 +24,7 @@ class Migration_messages extends CI_Migration {
 
 			// IP address of the sender of the message
 			'ip_address' => array(
-				'type' => 'CHAR',
+				'type' => 'VARCHAR',
 				'constraint' => 60,
 				'null' => false
 			),

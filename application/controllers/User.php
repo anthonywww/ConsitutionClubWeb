@@ -20,6 +20,40 @@ class User extends CI_Controller {
 		$this->load->view("footer");
 	}
 
+	public function captcha() {
+		if (empty($_SESSION)) {
+			redirect("/user");
+			return;
+		}
+
+		// TODO: Help prevent spam
+		//usleep(1000000);
+
+		$_SESSION['captcha_cache'] = substr(md5(rand(1000,9999)), 0, 6);
+		// Create a blank image and add some text
+		$im = imagecreatetruecolor(58, 18);
+		$bg = imagecolorallocatealpha($im, 0, 0, 0, 75); // BG color
+		imagecolortransparent($im, $bg); // set BG
+		$line_color = imagecolorallocate($im, rand(80,255), rand(80,255), rand(80,255)); // Set line color
+		$line_color2 = imagecolorallocate($im, rand(80,255), rand(80,255), rand(80,255)); // Set line color 2
+		$text_color = imagecolorallocate($im, rand(0,150), rand(0,150), rand(0,150)); // Set Text color
+
+		imageline($im, 0, rand(0,16), 58, rand(0,16), $line_color); // Draw line with line color
+		imageline($im, 0, rand(0,16), 58, rand(0,16), $line_color2); // Draw line with line color 2
+		imageline($im, 0, rand(0,16), 40, rand(0,16), $text_color); // Draw line with text color
+
+		imagestring($im, 5, 2, 0,  $_SESSION['captcha_cache'], $text_color); // Render text
+
+		// Set the content type header to image/png
+		header('Content-Type: image/png');
+
+		// Output the image
+		imagepng($im);
+
+		// Free up memory
+		imagedestroy($im);
+	}
+
 	private function show_login($body_data=array()) {
 		$header_data = array();
 		$header_data["title"] = "Login";

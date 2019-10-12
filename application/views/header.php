@@ -84,9 +84,24 @@
 								<span><i class="fa fa-flag"></i>&nbsp;Events</span>
 							</a>
 							-->
+<?php if(!empty($_SESSION['logged_in'])):?>
+<?php if($_SESSION['permission'] >= 30):
+$message_count = $this->messages_model->get_total_unread();
+?>
+							<a class="navbar-item navbar-item-events" href="/contact-us/admin">
+								<span><i class="fa fa-envelope"></i>&nbsp;Messages<?php echo $message_count > 0 ? " (" . $message_count . ")" : "";?></span>
+							</a>
+<?php else:?>
 							<a class="navbar-item navbar-item-events" href="/contact-us">
 								<span><i class="fa fa-envelope"></i>&nbsp;Contact Us</span>
 							</a>
+<?php endif;?>
+<?php else:?>
+							<a class="navbar-item navbar-item-events" href="/contact-us">
+								<span><i class="fa fa-envelope"></i>&nbsp;Contact Us</span>
+							</a>
+<?php endif;?>
+
 <?php if(!empty($_SESSION['logged_in'])):?>
 							<div class="navbar-item has-dropdown is-hoverable">
 								<a class="navbar-link is-arrowless" href="/user">
@@ -96,7 +111,7 @@
 									<a class="navbar-item" href="/user/logout">
 										<span><i class="fa fa-sign-out-alt"></i>&nbsp;Logout</span>
 									</a>
-<?php if($_SESSION['permission'] >= 30):?>
+<?php if($_SESSION['permission'] >= 30): /* Is VP or President */?>
 									<hr class="navbar-divider">
 									<a class="navbar-item" href="/admin">
 										<span><i class="fa fa-cog fa-spin"></i>&nbsp;Site Administration</span>

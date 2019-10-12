@@ -21,15 +21,16 @@ Permissions are incremental and build on top of on another.
 For best results deploy on a Debian GNU/Linux system.
 
 #### Prerequisites
+- mariadb-server (10.1+) or MySQL.
 - nginx (1.10.3+)
 - php7.1-fpm (7.1+)
-- php7.1-curl
-- php7.1-json
-- php7.1-mbstring
-- php7.1-mysql
-- php7.1-xml
-- php7.1-common
-- mariadb-server (10.1+) or MySQL.
+  - php7.1-curl
+  - php7.1-json
+  - php7.1-mbstring
+  - php7.1-mysql
+  - php7.1-xml
+  - php7.1-gd
+  - php7.1-common
 
 #### Clone the repository
 Via the command-line issue `git clone https://github.com/anthonywww/ConstitutionClubWeb`.
