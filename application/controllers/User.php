@@ -56,6 +56,7 @@ class User extends CI_Controller {
 						if ($_POST['password'] === $this->config->item("admin_password", "club")) {
 							// Do admin login
 							$_SESSION['logged_in'] = true;
+							$_SESSION['email'] = "admin@localhost.local";
 							$_SESSION['first_name'] = "admin";
 							$_SESSION['last_name'] = "";
 							$_SESSION['permission'] = 128;

@@ -4,7 +4,7 @@
 			<h1 class="title">Login</h1>
 			<h2 class="subtitle">Login to the <?php echo $this->config->item("title", "club");?></h2>
 <?php if (!empty($error_message)):?>
-			<p class="content error-message"><?php echo $error_message;?></p>
+			<p class="content error-message"><b>Error:</b>&nbsp;<?php echo $error_message;?></p>
 <?php endif;?>
 			<form enctype="application/x-www-form-urlencoded" action="/user/login" method="post">
 				<div class="field">

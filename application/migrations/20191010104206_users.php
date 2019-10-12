@@ -43,7 +43,7 @@ class Migration_users extends CI_Migration {
 				'null' => false
 			),
 
-			// Permission Level (0=Member, 1=Secretary, 2=Treasurer, 3=Vice-President, 4=President)
+			// Permission Level (0=Member, 10=Secretary, 20=Treasurer, 30=Vice-President, 40=President)
 			'permission' => array(
 				'type' => 'TINYINT',
 				'unsigned' => true,

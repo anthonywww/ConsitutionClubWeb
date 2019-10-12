@@ -65,10 +65,6 @@
 									<span><i class="fa fa-book"></i>&nbsp;U.S. Constitution</span>
 								</a>
 								<div class="navbar-dropdown">
-									<a class="navbar-item" href="/constitution/about">
-										<span><i class="fa fa-question"></i>&nbsp;What is it</span>
-									</a>
-									<hr class="navbar-divider">
 									<a class="navbar-item" href="/constitution/preamble">
 										<span><i class="fa fa-bell"></i>&nbsp;Preamble</span>
 									</a>
@@ -80,12 +76,14 @@
 									</a>
 								</div>
 							</div>
+							<!--
 							<a class="navbar-item navbar-item-posts" href="/news">
 								<span><i class="fa fa-newspaper"></i>&nbsp;News</span>
 							</a>
 							<a class="navbar-item navbar-item-events" href="/event">
 								<span><i class="fa fa-flag"></i>&nbsp;Events</span>
 							</a>
+							-->
 							<a class="navbar-item navbar-item-events" href="/contact-us">
 								<span><i class="fa fa-envelope"></i>&nbsp;Contact Us</span>
 							</a>
@@ -95,10 +93,10 @@
 									<span><i class="fa fa-user-circle"></i>&nbsp;<?php echo $_SESSION['first_name'];?></span>
 								</a>
 								<div class="navbar-dropdown">
-									<a class="navbar-item" href="/user/profile">
-										<span><i class="fa fa-cog"></i>&nbsp;Profile Settings</span>
+									<a class="navbar-item" href="/user/logout">
+										<span><i class="fa fa-sign-out-alt"></i>&nbsp;Logout</span>
 									</a>
-<?php if($_SESSION['permission'] >= 3):?>
+<?php if($_SESSION['permission'] >= 30):?>
 									<hr class="navbar-divider">
 									<a class="navbar-item" href="/admin">
 										<span><i class="fa fa-cog fa-spin"></i>&nbsp;Site Administration</span>

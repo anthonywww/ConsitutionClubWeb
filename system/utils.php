@@ -1,4 +1,6 @@
 <?php
+$db_query_count = 0;
+
 if (!function_exists('getallheaders')) {
 	function getallheaders() {
 		$headers = [];
@@ -37,4 +39,14 @@ function gen_csrf_token() {
 	$token = hash("sha1", bin2hex(random_bytes(32)));
 	$_SESSION['csrf_token'] = $token;
 	return $token;
+}
+
+function increment_db_query_count() {
+	global $db_query_count;
+	$db_query_count += 1;
+}
+
+function get_db_query_count() {
+	global $db_query_count;
+	return $db_query_count;
 }

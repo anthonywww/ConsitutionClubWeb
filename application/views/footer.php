@@ -11,6 +11,14 @@ $quote = $quotes[array_rand($quotes, 1)];
 					Powered by <a href="https://github.com/anthonywww/ConstitutionClubWeb">CCW</a> &bull;
 					Copyright &copy; <?php echo date('Y');?> <?php echo $this->config->item("title", "club");?> &bull;
 					<a href="https://www.law.cornell.edu/uscode/text/17/107" title="Educational Instance" alt="Educational Instance">U.S.C. § 107 Fair Use</a>
+<?php if(!empty($_SESSION['logged_in'])):?>
+<?php if($_SESSION['permission'] >= 30):?>
+					<br>
+					<i class="fa fa-clock"></i>&nbsp;Page generated in {elapsed_time}s
+					&bull; <i class="fa fa-microchip"></i>&nbsp;Memory used {memory_usage}
+					&bull; <i class="fa fa-database"></i>&nbsp;Database queries <?php echo get_db_query_count();?>
+<?php endif;?>
+<?php endif;?>
 				</span>
 			</div>
 		</footer>
