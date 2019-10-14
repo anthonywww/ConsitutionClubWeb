@@ -3,6 +3,8 @@
 
 A Open-Source website for collaborating topics about the U.S. Constitution and similarly oriented educational clubs all over the United States of America.
 
+![screenshot](/screenshot.png)
+
 ## Features
 - Members can post and discuss recent news and events.
 - Breaking down and understanding the rights provided by the U.S. Constitution.
