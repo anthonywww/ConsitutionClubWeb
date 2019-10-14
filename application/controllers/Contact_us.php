@@ -23,4 +23,16 @@ class Contact_us extends CI_Controller {
 		$this->load->view("footer");
 	}
 
+	public function read() {
+		$header_data = array();
+		$header_data["title"] = "Contact Us Messages";
+		$body_data = array();
+
+
+
+		$this->load->view("header", $header_data);
+		$this->load->view("contact-us/read", $body_data);
+		$this->load->view("footer");
+	}
+
 }

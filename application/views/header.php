@@ -88,7 +88,7 @@
 <?php if($_SESSION['permission'] >= 30):
 $message_count = $this->messages_model->get_total_unread();
 ?>
-							<a class="navbar-item navbar-item-events" href="/contact-us/admin">
+							<a class="navbar-item navbar-item-events" href="/contact-us/read">
 								<span><i class="fa fa-envelope"></i>&nbsp;Messages<?php echo $message_count > 0 ? " (" . $message_count . ")" : "";?></span>
 							</a>
 <?php else:?>
@@ -116,8 +116,11 @@ $message_count = $this->messages_model->get_total_unread();
 									<a class="navbar-item" href="/admin">
 										<span><i class="fa fa-cog fa-spin"></i>&nbsp;Site Administration</span>
 									</a>
-									<a class="navbar-item" href="/admin/users">
-										<span><i class="fa fa-users"></i>&nbsp;Manage Members</span>
+									<a class="navbar-item" href="/user/members">
+										<span><i class="fa fa-users"></i>&nbsp;All Members</span>
+									</a>
+									<a class="navbar-item" href="/user/admin_create">
+										<span><i class="fa fa-user-plus"></i>&nbsp;Create Member</span>
 									</a>
 <?php endif;?>
 								</div>
